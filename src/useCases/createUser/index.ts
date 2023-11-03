@@ -1,9 +1,9 @@
 import { UsersRepository } from "../../repositories/implements/inMemory/UserRepository";
-import { CreateUserController } from "./CreateUserController";
+import { CreateUserControllers } from "./CreateUserController";
 import { CreateUserUseCase } from "./CreateUserUseCases";
 
-const userRepository = UsersRepository.getIntance();
+const userRepository = UsersRepository.getInstance();
 const createUserUseCase = new CreateUserUseCase(userRepository);
-const createUserController = new CreateUserController(createUserUseCase);
+const createUserController = new CreateUserControllers(createUserUseCase);
 
 export { createUserController };

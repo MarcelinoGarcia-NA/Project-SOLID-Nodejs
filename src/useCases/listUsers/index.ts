@@ -3,7 +3,7 @@ import { ListUserController } from "./ListUsersControllers";
 import { ListUsersUseCases } from "./ListUsersUseCases";
 
 
-const userRepository = UsersRepository.getIntance();
+const userRepository = UsersRepository.getInstance();
 const listUsersUseCases = new ListUsersUseCases(userRepository);
 const listUserController = new ListUserController(listUsersUseCases);
 

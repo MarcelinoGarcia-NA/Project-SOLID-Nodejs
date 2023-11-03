@@ -1,7 +1,8 @@
 import { CreateUserUseCase } from "./CreateUserUseCases";
 import { Request, Response } from "express";
 
-export class CreateUserController {
+export class CreateUserControllers {
+
     constructor(private createUsercase: CreateUserUseCase) { }
 
     async Handle(request: Request, response: Response): Promise<Response> {
@@ -15,7 +16,7 @@ export class CreateUserController {
             return response.status(201).send(user);
         } catch (err) {
             return response.status(400).json({
-                message: err || "Unexpected error!"
+                message: err.message || "Unexpected error!"
             })
         }
     }
